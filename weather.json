@@ -1,0 +1,80 @@
+{
+    "weather": [
+        {
+            "temperature": 53,
+            "humidity": 35
+        },
+        {
+            "temperature": 51,
+            "humidity": 36
+        },
+        {
+            "temperature": 69,
+            "humidity": 15
+        },
+        {
+            "temperature": 75,
+            "humidity": 11
+        },
+        {
+            "temperature": 80,
+            "humidity": 7
+        },
+        {
+            "temperature": 68,
+            "humidity": 14
+        },
+        {
+            "temperature": 66,
+            "humidity": 19
+        },
+        {
+            "temperature": 69,
+            "humidity": 14
+        },
+        {
+            "temperature": 71,
+            "humidity": 14
+        },
+        {
+            "temperature": 86,
+            "humidity": 9
+        },
+        {
+            "temperature": 84,
+            "humidity": 8
+        },
+        {
+            "temperature": 69,
+            "humidity": 13
+        },
+        {
+            "temperature": 80,
+            "humidity": 8
+        },
+        {
+            "temperature": 84,
+            "humidity": 10
+        },
+        {
+            "temperature": 82,
+            "humidity": 9
+        },
+        {
+            "temperature": 82,
+            "humidity": 9
+        },
+        {
+            "temperature": 75,
+            "humidity": 13
+        },
+        {
+            "temperature": 73,
+            "humidity": 17
+        },
+        {
+            "temperature": 66,
+            "humidity": 23
+        }
+    ]
+}

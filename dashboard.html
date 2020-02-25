@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+    var tempPts = [];
+    var humidityPts = [];
+    var red = "#C0504E";
+    var blue = "#4F81BC";
+    $.getJSON("weather.json", function(data) {
+        $.each(data["weather"], function(key, value) {
+            tempPts.push({x: key, y: value.temperature, color: red})
+            humidityPts.push({x: key, y: value.humidity, color: blue})
+        });
+        var chart = new CanvasJS.Chart("chartContainer", {
+            exportEnabled: true,
+            animationEnabled: true,
+            title: {text: "Temperature and Humidity"},
+            axisX: {
+                title: "Time - 30 minute interval for last 24 hours",
+                interval: 4,
+                minimum: 0,
+                maximum: 24
+            },
+            axisY: [{
+                title: "Temperature - F",
+                titleFontColor: red,
+                lineColor: red,
+                labelFontColor: red,
+                tickColor: red
+            },
+            {
+                title: "Humidity - %",
+                titleFontColor: blue,
+                lineColor: blue,
+                labelFontColor: blue,
+                tickColor: blue
+            }],
+            toolTip: {shared: true},
+            legend: {cursor: "pointer", itemclick: toggleDataSeries},
+            data:[{
+                type: "column",
+                name: "Temperature",
+                color: red,
+                showInLegend: true,
+                dataPoints: tempPts
+            },
+            {
+                type: "column",
+                name: "Humidity",
+                color: blue,
+                showInLegend: true,
+                dataPoints: humidityPts
+            }]
+        });
+        chart.render();
+        
+        function toggleDataSeries(e) {
+            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                e.dataSeries.visible = false;
+            } else {
+                e.dataSeries.visible = true;
+            }
+            e.chart.render();
+        }
+    });
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+</body>
+</html>
